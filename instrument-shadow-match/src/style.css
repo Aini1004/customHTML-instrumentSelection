@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+#game-container {
+    width: 80vw;
+    height: 45vw; /* 16:9 aspect ratio */
+    max-width: 1280px;
+    max-height: 720px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid #333;
+    background-color: #fff;
+}
+
+.instruments {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px; /* Adjust spacing as needed */
+    margin-bottom: 20px;
+}
+
+.instrument,
+.shadow img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.shadows {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px; /* Adjust spacing as needed */
+    margin-top: 32px;
+}
+
+.shadow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: auto;
+    opacity: 0.5;
+    margin: 10px;
+}
+
+.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+}
