@@ -12,7 +12,25 @@ instruments.forEach(inst => {
             parent: inst.parentNode,
             next: inst.nextSibling
         };
-        setTimeout(() => inst.style.visibility = 'hidden', 0);
+        // Set translucent drag image
+        const dragImg = inst.cloneNode(true);
+        dragImg.style.opacity = '0.5';
+        dragImg.style.width = inst.offsetWidth + 'px';
+        dragImg.style.height = inst.offsetHeight + 'px';
+        dragImg.style.position = 'absolute';
+        dragImg.style.top = '-9999px';
+        dragImg.style.left = '-9999px';
+        document.body.appendChild(dragImg);
+        e.dataTransfer.setDragImage(dragImg, dragImg.width / 2, dragImg.height / 2);
+
+        setTimeout(() => {
+            inst.style.visibility = 'hidden';
+        }, 0);
+
+        // Remove the drag image after a short delay
+        setTimeout(() => {
+            if (dragImg.parentNode) dragImg.parentNode.removeChild(dragImg);
+        }, 100);
     });
 
     inst.addEventListener('dragend', (e) => {
@@ -31,6 +49,13 @@ shadows.forEach(shadow => {
         if (!draggedInstrument) return;
         const instrumentNum = draggedInstrument.id.replace('instrument', '');
         if (shadow.dataset.instrument === instrumentNum) {
+            // Hide the respective info icon (not remove, to keep DOM structure)
+            const wrapper = draggedInstrument.closest('.instrument-wrapper');
+            if (wrapper) {
+                const infoIcon = wrapper.querySelector('.info-icon');
+                if (infoIcon) infoIcon.style.display = 'none';
+            }
+
             // Snap the instrument absolutely over the shadow image
             shadow.style.position = 'relative';
             draggedInstrument.style.position = 'absolute';
@@ -56,4 +81,22 @@ shadows.forEach(shadow => {
         }
         draggedInstrument = null;
     });
+});
+
+// Tooltip logic
+document.querySelectorAll('.info-icon').forEach(icon => {
+    icon.addEventListener('click', function(e) {
+        e.stopPropagation();
+        document.getElementById('tooltip-modal').style.display = 'flex';
+    });
+});
+
+document.querySelector('.tooltip-close').addEventListener('click', function() {
+    document.getElementById('tooltip-modal').style.display = 'none';
+});
+
+document.getElementById('tooltip-modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        this.style.display = 'none';
+    }
 });

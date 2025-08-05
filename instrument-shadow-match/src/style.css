@@ -63,3 +63,80 @@ body {
     opacity: 0.5;
     cursor: grabbing;
 }
+
+.instrument-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.info-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 28px;
+    height: 28px;
+    z-index: 2;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.tooltip-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.tooltip-content {
+    position: relative;
+    width: 672px;
+    height: 672px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltip-bg {
+    width: 672px;
+    height: 672px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.tooltip-text {
+    position: relative;
+    z-index: 2;
+    color: #222;
+    font-size: 2rem;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.tooltip-close {
+    position: absolute;
+    top: 12px;
+    right: 24px;
+    z-index: 3;
+    background: transparent;
+    border: none;
+    font-size: 2.5rem;
+    color: #333;
+    cursor: pointer;
+}
+
+.game-container,
+.game-container *:focus {
+    outline: none;
+    caret-color: transparent;
+}

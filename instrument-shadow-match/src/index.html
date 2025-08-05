@@ -9,13 +9,34 @@
 <body>
     <div class="game-container">
         <div class="instruments">
-            <img src="../images/instrument_1.png" class="instrument" draggable="true" id="instrument1">
-            <img src="../images/instrument_2.png" class="instrument" draggable="true" id="instrument2">
-            <img src="../images/instrument_3.png" class="instrument" draggable="true" id="instrument3">
-            <img src="../images/instrument_4.png" class="instrument" draggable="true" id="instrument4">
-            <img src="../images/instrument_5.png" class="instrument" draggable="true" id="instrument5">
-            <img src="../images/instrument_6.png" class="instrument" draggable="true" id="instrument6">
-            <img src="../images/instrument_7.png" class="instrument" draggable="true" id="instrument7">
+            <div class="instrument-wrapper">
+                <img src="../images/info_icon.png" class="info-icon" data-instrument="1">
+                <img src="../images/instrument_1.png" class="instrument" draggable="true" id="instrument1">
+            </div>
+            <div class="instrument-wrapper">
+                <img src="../images/info_icon.png" class="info-icon" data-instrument="2">
+                <img src="../images/instrument_2.png" class="instrument" draggable="true" id="instrument2">
+            </div>
+            <div class="instrument-wrapper">
+                <img src="../images/info_icon.png" class="info-icon" data-instrument="3">
+                <img src="../images/instrument_3.png" class="instrument" draggable="true" id="instrument3">
+            </div>
+            <div class="instrument-wrapper">
+                <img src="../images/info_icon.png" class="info-icon" data-instrument="4">
+                <img src="../images/instrument_4.png" class="instrument" draggable="true" id="instrument4">
+            </div>
+            <div class="instrument-wrapper">
+                <img src="../images/info_icon.png" class="info-icon" data-instrument="5">
+                <img src="../images/instrument_5.png" class="instrument" draggable="true" id="instrument5">
+            </div>
+            <div class="instrument-wrapper">
+                <img src="../images/info_icon.png" class="info-icon" data-instrument="6">
+                <img src="../images/instrument_6.png" class="instrument" draggable="true" id="instrument6">
+            </div>
+            <div class="instrument-wrapper">
+                <img src="../images/info_icon.png" class="info-icon" data-instrument="7">
+                <img src="../images/instrument_7.png" class="instrument" draggable="true" id="instrument7">
+            </div>
         </div>
         <div class="shadows">
             <div class="shadow" data-instrument="1" id="shadow1">
@@ -36,6 +57,14 @@
             <div class="shadow" data-instrument="6" id="shadow6">
                 <img src="../images/instrument_6_shadow.png" alt="Shadow 6">
             </div>
+        </div>
+    </div>
+    <!-- Tooltip Modal -->
+    <div id="tooltip-modal" class="tooltip-modal" style="display:none;">
+        <div class="tooltip-content">
+            <img src="../images/tooltip_box.png" class="tooltip-bg">
+            <span class="tooltip-text">This is a description</span>
+            <button class="tooltip-close">&times;</button>
         </div>
     </div>
     <script src="game.js"></script>
